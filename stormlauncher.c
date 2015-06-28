@@ -28,7 +28,6 @@ stormlauncher_cmd_fire[] = { 0x02,0x10,0x00,0x00,0x00,0x00,0x00,0x00 };
 unsigned char
 stormlauncher_open(stormLauncher_t* sl) {
 
-
 	libusb_init( &sl->ctx );
 	sl->hnd = libusb_open_device_with_vid_pid( sl->ctx, VENDOR_ID, PRODUCT_ID );
 
@@ -42,4 +41,3 @@ void
 stormlauncher_send(stormLauncher_t* sl, unsigned char* cmd) {
 	libusb_control_transfer( sl->hnd, 0x21, 0x09, 0, 0, cmd, 8, 1000 );
 }
-
