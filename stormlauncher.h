@@ -80,5 +80,7 @@ typedef struct {
 		usleep(STORMLAUNCHER_STEP);	\
 		stormlauncher_stop(sl);
 
+unsigned char
+stormlauncher_open(stormLauncher_t*);
 
 #endif
