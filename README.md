@@ -39,4 +39,7 @@ stormlauncher_right_step(sl)
 stormlauncher_up_step(sl)
 stormlauncher_down_step(sl)
 
+// fires a rocket
+stormlauncher_fire(sl)
+
 ```
