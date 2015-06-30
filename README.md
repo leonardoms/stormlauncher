@@ -25,21 +25,21 @@ unsigned char stormlauncher_open(stormLauncher_t*);
 stormlauncher_setled(sl, led);
 
 // sl = stormLauncher_t - stop launcher movement
-stormlauncher_stop(sl)
+stormlauncher_stop(sl);
 
 // move launcher until stormlauncher_stop a call
-stormlauncher_left(sl)
-stormlauncher_right(sl)
-stormlauncher_up(sl)
-stormlauncher_down(sl)
+stormlauncher_left(sl);
+stormlauncher_right(sl);
+stormlauncher_up(sl);
+stormlauncher_down(sl);
 
 // move launcher by a small step
-stormlauncher_left_step(sl)
-stormlauncher_right_step(sl)
-stormlauncher_up_step(sl)
-stormlauncher_down_step(sl)
+stormlauncher_left_step(sl);
+stormlauncher_right_step(sl);
+stormlauncher_up_step(sl);
+stormlauncher_down_step(sl);
 
 // fires a rocket
-stormlauncher_fire(sl)
+stormlauncher_fire(sl);
 
 ```
