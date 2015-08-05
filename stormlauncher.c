@@ -1,5 +1,6 @@
 
 #include "stormlauncher.h"
+#include <stdio.h>
 
 unsigned char
 stormlauncher_cmd_ledon[] = { 0x03,0x01,0x00,0x00,0x00,0x00,0x00,0x00 };
@@ -38,14 +39,26 @@ stormlauncher_open(stormLauncher_t* sl) {
 	if( libusb_kernel_driver_active( sl->hnd, 0 ) ) {
 		err = libusb_detach_kernel_driver(sl->hnd, 0);
 		if( err ) {
-			printf("** ERROR: libusb - %s\n", libusb_error_name(err));
+			printf("** ERROR: libusb_detach_kernel_driver() - %s\n", libusb_error_name(err));
 			return FALSE;
 		}
 	}
 
+//	err = libusb_reset_device(sl->hnd);
+//	if( err ) {
+//		printf("** ERROR: libusb_reset_device() - %s\n", libusb_error_name(err));
+//		return FALSE;
+//	}
+
+	err = libusb_set_configuration( sl->hnd, 1 );
+	if( err ) {
+		printf("** ERROR: libusb_set_configuration() - %s\n", libusb_error_name(err));
+		return FALSE;
+	}
+
 	err = libusb_claim_interface(sl->hnd, 0);
 	if( err ) {
-		printf("** ERROR: libusb - %s\n", libusb_error_name(err));
+		printf("** ERROR: libusb_claim_interface() - %s\n", libusb_error_name(err));
 		return FALSE;
 	}
 

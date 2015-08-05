@@ -5,8 +5,14 @@ Its a controller for Rocket Launcher '[StormLauncher](http://dreamcheeky.com/thu
 
 #### Build
 
+build as embedded code:
 ```
-cc test.c stormlauncher.c -I. -lusb-1.0 -o launcher_test
+cc test.c stormlauncher.c -I. -I/usr/include/libusb-1.0/ -lusb-1.0 -o launcher_test
+```
+
+build as lib:
+```
+cc stormlauncher.c -I. -I/usr/include/libusb-1.0/ -lusb-1.0 -shared -fPIC -o libstormlauncher.so
 ```
 
 #### Dependencies
